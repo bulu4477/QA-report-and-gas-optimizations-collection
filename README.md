@@ -57,5 +57,8 @@
 52、避免不必要的存储更新，避免在值未更改时更新存储。如果旧值等于新值，则不重新存储该值将避免 SSTORE 操作（花费 2900 Gas），可能会损失 SLOAD 操作（2100 Gas）或 WARMACCESS 操作（100 Gas）。  
 53、位移位中应使用乘法和除法 2  
 54、传递函数参数时，使用calldata区域代替memory可以提高gas效率。  
-55、
+55、++numMinted 与 相比，花费更少的 GasnumMinted += 1  
+56、在循环中使用calldata带她memory，前提是calldata的数值不会改变  
+57、可以标记普通用户调用时保证恢复的功能payable，https://code4rena.com/reports/2023-07-axelar#gas-optimizations  
+58、
 ***

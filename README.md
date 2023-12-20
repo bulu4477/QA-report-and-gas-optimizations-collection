@@ -52,7 +52,7 @@
 47、不要收缩变量，这意味着，如果您使用 uint8 或任何小于 256 位的变量，EVM 必须首先将其转换为 uint256 才能对其进行处理，并且转换会花费额外的 Gas！https://github.com/code-423n4/2023-09-maia-findings/blob/main/data/zabihullahazadzoi-G.md  
 48、映射比数组更有效  
 49、优化名称以节省 Gas，可以优化公共/外部函数名称和公共成员变量名称以节省gas。网址如上  
-50、对于变量来说，运算符 += 比 = + 花费更多的 Gas  
+50、对于变量来说，运算符 += 比 x= x + y 花费更多的 Gas  
 51、外部调用接收者造成的无限燃气消耗风险，当调用外部函数而不指定gas limit时，被调用的合约可能会消耗所有剩余的gas，导致交易被恢复。为了缓解这种情况，建议在进行低级别外部调用时明确设置气体限制。  
 52、避免不必要的存储更新，避免在值未更改时更新存储。如果旧值等于新值，则不重新存储该值将避免 SSTORE 操作（花费 2900 Gas），可能会损失 SLOAD 操作（2100 Gas）或 WARMACCESS 操作（100 Gas）。  
 53、位移位中应使用乘法和除法 2  
@@ -60,5 +60,7 @@
 55、++numMinted 与 相比，花费更少的 GasnumMinted += 1  
 56、在循环中使用calldata带她memory，前提是calldata的数值不会改变  
 57、可以标记普通用户调用时保证恢复的功能payable，https://code4rena.com/reports/2023-07-axelar#gas-optimizations  
-58、
+58、循环外缓存数组长度  
+59、事件应该在循环之外发出  
+60、
 ***
